@@ -1,0 +1,39 @@
+### Test User Registration
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "username": "testuser", 
+  "password": "password123"
+}
+
+### Test Duplicate Email (should fail)
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "username": "differentuser",
+  "password": "password123"
+}
+
+### Test Invalid Email (should fail)
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "email": "invalid-email",
+  "username": "testuser2",
+  "password": "password123"
+}
+
+### Test Short Password (should fail)
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "email": "test2@example.com",
+  "username": "testuser2",
+  "password": "123"
+}
